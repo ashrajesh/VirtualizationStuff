@@ -92,7 +92,7 @@ def confirm_page():
         print("Test 4 Failed")
         return False
     if fifth_line != correct_fifth_line:
-        pritn("Test 5 Failed")
+        print("Test 5 Failed")
         return False
     return True
 
