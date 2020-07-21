@@ -87,13 +87,13 @@ def confirm_page():
     if third_line != correct_third_line:
         print("Test 3 Failed")
         return False
-    print("Page is Up and Running!")
     if fourth_line != correct_fourth_line:
         print("Test 4 Failed")
         return False
     if fifth_line != correct_fifth_line:
         print("Test 5 Failed")
         return False
+    print("\nPage is Up and Running!\n")
     return True
 
 execute_test()
