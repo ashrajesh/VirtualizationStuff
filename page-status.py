@@ -1,13 +1,3 @@
-# TASK:
-# Simple python script to check whether or not the page is up and running and that the data is loading in properly.
-# If it is up and data is loaded properly, return true, and return false otherwise.
-# https://datastudio.google.com/u/0/reporting/fc733b10-9744-4a72-a502-92290f608571/page/70YCB
-
-
-# This program assumes the internet connection is relatively fast and stable
-# This program assumes the loading of the filter at that bottom of the table correlates to the successful loading of data
-# This program assumes that the data studio report content, pages, filters remain unchanged (otherwise changes to the tests and lists will be required)
-
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 import time
@@ -32,7 +22,7 @@ def execute_test():
     global temp
     try:
         driver.get(test_url) #Running URL on Chrome Driver
-        time.sleep(3) #Allow for Loading Time
+        time.sleep(3)
         #Execute First Test
         temp = driver.find_element_by_css_selector('#body > div > div > div.lego-reporting-view.activity-view.no-licensed > div.page > div > div.mainBlock.ng-scope > div > div.scaleSizeHolder > div > lego-report > lego-canvas-container > div > file-drop-zone > span > content-section > div:nth-child(20) > canvas-component > div > div > div > div > textbox > div > div:nth-child(1) > div:nth-child(1) > font > font').text 
     except NoSuchElementException:
@@ -111,7 +101,7 @@ def confirm_page():
         if test_lines[0] != correct_lines[0]:
             print("Report Failed to Meet Loading Requirements")
             state += 1
-    except:
+    except IndexError:
         print("Report Failed to Meet Loading Requirements")
         return False
     try:
