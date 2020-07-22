@@ -45,14 +45,14 @@ def execute_test():
     try:
         temp = driver.find_element_by_css_selector('#body > div > div > div.lego-reporting-view.activity-view.no-licensed > div.page > div > div.mainBlock.ng-scope > div > div.scaleSizeHolder > div > lego-report > lego-canvas-container > div > file-drop-zone > span > content-section > div:nth-child(10) > canvas-component > div > div > div > div > dimension-filter-control > simple-dimension-filter > control-layout-wrapper > button > div > span.lego-control-section.label > span.main-text > main-section').text 
     except NoSuchElementException:
-        print("Test 2 Failed to Execute")
+        print("Test 2 Failed to Execute (Table 1, Page 1)")
         return False
     test_lines.append(temp)
     #Execute Third Test
     try:
         temp = driver.find_element_by_css_selector('#body > div > div > div.lego-reporting-view.activity-view.no-licensed > div.page > div > div.mainBlock.ng-scope > div > div.scaleSizeHolder > div > lego-report > lego-canvas-container > div > file-drop-zone > span > content-section > div:nth-child(17) > canvas-component > div > div > div > div > dimension-filter-control > simple-dimension-filter > control-layout-wrapper > button > div > span.lego-control-section.label > span.main-text > main-section').text 
     except NoSuchElementException:
-        print("Test 3 Failed to Execute")
+        print("Test 3 Failed to Execute (Table 2, Page 1)")
         return False
     test_lines.append(temp)
     #Enter Next Page
@@ -62,21 +62,21 @@ def execute_test():
     try:
         temp = driver.find_element_by_css_selector('#body > div > div > div.lego-reporting-view.activity-view.no-licensed > div.page > div > div.mainBlock.ng-scope > div > div.scaleSizeHolder > div > lego-report > lego-canvas-container > div > file-drop-zone > span > content-section > div:nth-child(11) > canvas-component > div > div > div > div > dimension-filter-control > simple-dimension-filter > control-layout-wrapper > button > div > span.lego-control-section.label > span.main-text > main-section').text  
     except NoSuchElementException:
-        print("Test 4 Failed to Execute")
+        print("Test 4 Failed to Execute (Table 1, Page 2)")
         return False
     test_lines.append(temp)
     #Execute Fifth Test
     try:
         temp = driver.find_element_by_css_selector('#body > div > div > div.lego-reporting-view.activity-view.no-licensed > div.page > div > div.mainBlock.ng-scope > div > div.scaleSizeHolder > div > lego-report > lego-canvas-container > div > file-drop-zone > span > content-section > div:nth-child(21) > canvas-component > div > div > div > div > dimension-filter-control > simple-dimension-filter > control-layout-wrapper > button > div > span.lego-control-section.label > span.main-text > main-section').text 
     except NoSuchElementException:
-        print("Test 5 Failed to Execute")
+        print("Test 5 Failed to Execute (Table 2, Page 2)")
         return False
     test_lines.append(temp)
     #Execute Sixth Test
     try:
         temp = driver.find_element_by_css_selector('#body > div > div > div.lego-reporting-view.activity-view.no-licensed > div.page > div > div.mainBlock.ng-scope > div > div.scaleSizeHolder > div > lego-report > lego-canvas-container > div > file-drop-zone > span > content-section > div:nth-child(28) > canvas-component > div > div > div > div > dimension-filter-control > simple-dimension-filter > control-layout-wrapper > button > div > span.lego-control-section.label > span.main-text > main-section').text 
     except NoSuchElementException:
-        print("Test 6 Failed to Execute")
+        print("Test 6 Failed to Execute (Table 3, Page 2)")
         return False
     test_lines.append(temp)
     #Enter Next Page
@@ -86,21 +86,21 @@ def execute_test():
     try:
         temp = driver.find_element_by_css_selector('#body > div > div > div.lego-reporting-view.activity-view.no-licensed > div.page > div > div.mainBlock.ng-scope > div > div.scaleSizeHolder > div > lego-report > lego-canvas-container > div > file-drop-zone > span > content-section > div:nth-child(11) > canvas-component > div > div > div > div > dimension-filter-control > simple-dimension-filter > control-layout-wrapper > button > div > span.lego-control-section.label > span.main-text > main-section').text 
     except NoSuchElementException:
-        print("Test 7 Failed to Execute")
+        print("Test 7 Failed to Execute (Table 1, Page 3)")
         return False
     test_lines.append(temp)
     #Execute Eighth Test
     try:
         temp = driver.find_element_by_css_selector('#body > div > div > div.lego-reporting-view.activity-view.no-licensed > div.page > div > div.mainBlock.ng-scope > div > div.scaleSizeHolder > div > lego-report > lego-canvas-container > div > file-drop-zone > span > content-section > div:nth-child(22) > canvas-component > div > div > div > div > dimension-filter-control > simple-dimension-filter > control-layout-wrapper > button > div > span.lego-control-section.label > span.main-text > main-section').text 
     except NoSuchElementException:
-        print("Test 8 Failed to Execute")
+        print("Test 8 Failed to Execute (Table 2, Page 3)")
         return False
     test_lines.append(temp)
     #Execute Ninth Test
     try:
         temp = driver.find_element_by_css_selector('#body > div > div > div.lego-reporting-view.activity-view.no-licensed > div.page > div > div.mainBlock.ng-scope > div > div.scaleSizeHolder > div > lego-report > lego-canvas-container > div > file-drop-zone > span > content-section > div:nth-child(30) > canvas-component > div > div > div > div > dimension-filter-control > simple-dimension-filter > control-layout-wrapper > button > div > span.lego-control-section.label > span.main-text > main-section').text 
     except NoSuchElementException:
-        print("Test 9 Failed to Execute")
+        print("Test 9 Failed to Execute (Table 3, Page 4)")
         return False
     test_lines.append(temp)
     driver.quit()
@@ -110,11 +110,15 @@ def confirm_page():
     if test_lines[0] != correct_lines[0]:
         print("Report Failed to Meet Loading Requirements")
         state += 1
-    for y in range(8): #iterates through each table test checking whether the filter has loaded and matches the correct filter
-        z = y + 1
-        if test_lines[z] != correct_lines[z]:
-            print("Table "+str(z)+" Encountered a Disruption")
-            state += 1
+    try:
+        for y in range(8): #iterates through each table test checking whether the filter has loaded and matches the correct filter
+            z = y + 1
+            if test_lines[z] != correct_lines[z]:
+                print("Table "+str(z)+" Encountered a Disruption")
+                state += 1
+    except IndexError:
+        print("\nPlease Tend to Faulty Table Listed Above.")
+        return False
     if state == 0:
         print("\nPage is Up and Running!\n")
         return True
