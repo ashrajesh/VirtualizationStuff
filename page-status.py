@@ -107,11 +107,15 @@ def execute_test():
 
 def confirm_page():
     state = 0
-    if test_lines[0] != correct_lines[0]:
-        print("Report Failed to Meet Loading Requirements")
-        state += 1
     try:
-        for y in range(8): #iterates through each table test checking whether the filter has loaded and matches the correct filter
+        if test_lines[0] != correct_lines[0]:
+            print("Report Failed to Meet Loading Requirements")
+            state += 1
+    except:
+        print("Report Failed to Meet Loading Requirements")
+        return False
+    try:
+        for y in range(8):
             z = y + 1
             if test_lines[z] != correct_lines[z]:
                 print("Table "+str(z)+" Encountered a Disruption")
